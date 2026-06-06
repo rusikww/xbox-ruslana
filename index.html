@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XBOX Game Pass — Ruslan234434543</title>
+  <meta name="description" content="XBOX Game Pass: данные аккаунта, видео-гайд, быстрый поиск ошибок и инструкция для покупателей FunPay." />
+  <meta name="theme-color" content="#06111f" />
+  <link rel="preconnect" href="https://www.gstatic.com">
+  <link rel="preconnect" href="https://firestore.googleapis.com">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app-bg"></div>
+
+<header class="top">
+  <a class="seller" href="https://funpay.com/users/5941304/" target="_blank" rel="noopener">
+    <span class="mini-avatar"><img src="avatar.webp" alt=""><i></i></span>
+    <span>Ruslan234434543</span>
+    <b id="topOnline">онлайн</b>
+  </a>
+  <nav>
+    <a href="#data">Данные</a>
+    <a href="#video">Видео</a>
+    <a href="#errors">Ошибки</a>
+    <a href="#review">Отзыв</a>
+    <a class="admin-link" href="admin.html">Админка</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="badge">XBOX GAME PASS</div>
+      <h1>Вход, гайд и решение ошибок без лишней переписки</h1>
+      <p>Скопируйте данные, посмотрите видео-гайд и быстро найдите нужную ошибку. Всё собрано в одном месте для покупателей FunPay.</p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="#data">Скопировать данные</a>
+        <a class="btn soft" href="#video">Видео-гайд</a>
+        <a class="btn soft" href="#errors">Найти ошибку</a>
+      </div>
+
+      <div class="quick-search">
+        <label>Быстрый поиск ошибки</label>
+        <div class="quick-search-row">
+          <input id="heroSearch" placeholder="Например: 0x803f8001, Too many requests, VPN, устройства">
+          <button onclick="goSearch()">Найти</button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="seller-card">
+      <a class="seller-card-link" href="https://funpay.com/users/5941304/" target="_blank" rel="noopener" aria-label="Открыть профиль FunPay"></a>
+      <div class="avatar-wrap">
+        <img src="avatar.webp" alt="">
+        <span class="pulse-ring"></span>
+        <span class="live-dot"></span>
+      </div>
+
+      <div class="seller-main">
+        <h2>Ruslan234434543</h2>
+        <p class="live-text"><i></i> <span id="sellerOnline">онлайн на FunPay</span></p>
+
+        <div class="seller-metrics">
+          <div>
+            <b>5</b>
+            <span>из 5</span>
+            <em>★★★★★</em>
+          </div>
+          <div>
+            <b id="reviewsCount">489</b>
+            <span>отзывов</span>
+          </div>
+        </div>
+
+        <div class="seller-tags">
+          <span>Быстрая выдача</span>
+          <span>Актуальные данные</span>
+          <span>Помощь по ошибкам</span>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section id="data" class="panel data-panel">
+    <div>
+      <span class="kicker">Данные аккаунта</span>
+      <h2>Скопируйте почту и пароль</h2>
+      <p>Данные обновляются через админку и сразу появляются на сайте. Если пароль уже указан — писать продавцу не нужно.</p>
+      <div class="notice">
+        Сначала войдите в Microsoft Store в выданный аккаунт. Потом запустите Xbox App и войдите в свой личный аккаунт.
+      </div>
+    </div>
+    <div class="data-box">
+      <label>Почта</label>
+      <div class="copy-row">
+        <input id="email" readonly value="Загрузка...">
+        <button onclick="copyValue('email')">Копировать</button>
+      </div>
+      <label>Пароль</label>
+      <div class="copy-row">
+        <input id="password" readonly value="Загрузка...">
+        <button onclick="copyValue('password')">Копировать</button>
+      </div>
+      <p class="updated">Обновлено: <b id="updated">...</b></p>
+    </div>
+  </section>
+
+  <section id="video" class="panel video-panel">
+    <div class="section-title">
+      <div>
+        <span class="kicker">Видео-гайд</span>
+        <h2>Гайд по привязке подписки</h2>
+        <p>Смотрите внимательно перед входом. Это сильно снижает шанс ошибок.</p>
+      </div>
+      <a id="videoLink" class="btn primary small" target="_blank">Открыть на YouTube</a>
+    </div>
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/apz-cX3nZHM" title="XBOX guide" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section class="panel warning">
+    <span class="kicker">Важно</span>
+    <h2>Перед входом</h2>
+    <div class="grid-2">
+      <article><b>01</b><p>Выйдите из аккаунта Microsoft Store и Xbox App перед началом.</p></article>
+      <article><b>02</b><p>В Microsoft Store входите в выданный аккаунт, в Xbox App — в свой личный.</p></article>
+      <article><b>03</b><p>EA Play: входите через иконку Xbox в приложении EA.</p></article>
+      <article><b>04</b><p>Не выходите из аккаунта без необходимости и не делитесь им.</p></article>
+      <article><b>05</b><p>Если ошибка входа — не спамьте попытками, подождите.</p></article>
+      <article><b>06</b><p>Если просит изменить сведения защиты — нажмите «Далее» 2–4 раза.</p></article>
+    </div>
+  </section>
+
+  <section id="errors" class="panel">
+    <div class="errors-head">
+      <div>
+        <span class="kicker">Быстрый поиск</span>
+        <h2>Найдите ошибку</h2>
+      </div>
+      <input id="errorSearch" class="search" placeholder="Поиск: код ошибки, VPN, устройства, загрузка">
+    </div>
+
+    <div class="chips">
+      <button onclick="quickSearch('0x8007003B')">0x8007003B</button>
+      <button onclick="quickSearch('Too many requests')">Too many requests</button>
+      <button onclick="quickSearch('0x803f8001')">0x803f8001</button>
+      <button onclick="quickSearch('устройства')">Устройства</button>
+      <button onclick="quickSearch('не скачивается')">Не скачивается</button>
+      <button onclick="quickSearch('xbox live')">Xbox Live</button>
+      <button onclick="quickSearch('Ой Похоже')">Ой! Похоже…</button>
+    </div>
+
+    <div class="error-list" id="errorList">
+      <details open data-keywords="0x8007003b too many requests vpn proton много попыток вход">
+        <summary>0x8007003B / Too many requests / много попыток</summary>
+        <p>Не спамьте входами. Перезагрузите ПК, удалите аккаунт в Windows: <b>Настройки → Учётные записи</b>, подождите и попробуйте снова. Используйте VPN США. Если не помогает — смените страну VPN.</p>
+      </details>
+
+      <details data-keywords="устройства device limit devices удалить устройство">
+        <summary>Ошибка большого количества устройств</summary>
+        <p>Откройте <a target="_blank" href="https://account.microsoft.com/devices/content">account.microsoft.com/devices/content</a>, войдите в аккаунт и удалите 2–3 лишних устройства. Если ошибка — сначала удалите устройство на <a target="_blank" href="https://account.microsoft.com/devices/">account.microsoft.com/devices</a>.</p>
+        <img class="error-img" src="devices-error.webp" alt="Ошибка большого количества устройств">
+      </details>
+
+      <details data-keywords="диск windowsapps d установка другой раздел">
+        <summary>Установка на другой диск / раздел</summary>
+        <p>Если ставите на диск D, папка должна быть в корне: <code>D:\WindowsApps</code>. Если её нет — создайте. Затем Пуск → Xbox → параметры → «Исправить», потом «Сбросить».</p>
+      </details>
+
+      <details data-keywords="0x00070045 похожие ошибки гугл">
+        <summary>Ошибки типа 0x00070045</summary>
+        <p>По таким ошибкам обычно помогает поиск по точному коду ошибки. Скопируйте код и проверьте первые решения Microsoft/форумов.</p>
+      </details>
+
+      <details data-keywords="0x80073cfb пиратская копия остатки реестр">
+        <summary>Error 0x80073CFB</summary>
+        <p>Ошибка может быть из-за неполного удаления пиратской копии игры. Удалите остатки файлов и реестра.</p>
+      </details>
+
+      <details data-keywords="0x803f8001 платная недоступна регион германия">
+        <summary>Error 0x803f8001 — игра платная или недоступна</summary>
+        <p>Закройте Xbox через трей → Параметры Windows → Регион → выберите Германия. Формат региона можно не менять. Потом снова откройте Xbox. Если не помогло — перезайдите в учётку Store.</p>
+      </details>
+
+      <details data-keywords="0x800700e9 wsreset store">
+        <summary>Error 0x800700e9</summary>
+        <p>Нажмите <code>Win + R</code>, введите <code>wsreset.exe</code> и нажмите Enter.</p>
+        <p><a target="_blank" href="https://www.thewindowsclub.com/fix-0x800700e9-xbox-game-pass-error-code">Дополнительная инструкция</a></p>
+      </details>
+
+      <details data-keywords="0x80073cf6 антивирус касперский службы">
+        <summary>Error 0x80073cf6</summary>
+        <p>Антивирус, часто Kaspersky, может блокировать установку служб. Остановите или удалите его. Также выполните <code>wsreset.exe</code>.</p>
+      </details>
+
+      <details data-keywords="ультимативное решение sfc powershell wsreset любая ошибка">
+        <summary>Ультимативное решение почти любой ошибки</summary>
+        <ol>
+          <li>Отключите антивирус.</li>
+          <li>Обновите Windows.</li>
+          <li>Включите автоматическое время и часовой пояс.</li>
+          <li>Выполните <code>wsreset.exe</code>.</li>
+          <li>Xbox → параметры → «Исправить» → «Сбросить».</li>
+          <li>CMD от имени администратора: <code>sfc /scannow</code>, затем перезагрузка.</li>
+          <li>PowerShell от имени администратора: используйте команду ниже.</li>
+        </ol>
+        <button class="mini-btn" onclick="copyCommand()">Скопировать PowerShell-команду</button>
+      </details>
+
+      <details data-keywords="вылетает игра crash numpad universal фикс explorer проводник">
+        <summary>Игра вылетает</summary>
+        <p>Если вылетает в окне запуска или через пару минут — отключите антивирус и брандмауэр Windows.</p>
+        <p>Если вылетает через 10–30 минут: используйте фикс, запустите игру, дождитесь загрузки и нажмите <b>Numpad+</b>. После игры нажмите <b>Numpad-</b>. Если NumPad нет: завершите проводник в диспетчере задач, потом запустите <code>explorer.exe</code>.</p>
+      </details>
+
+      <details data-keywords="не скачивается загрузка остановилась подготовка">
+        <summary>Не скачивается игра / остановилась загрузка</summary>
+        <ol>
+          <li>Убедитесь, что сменили регион.</li>
+          <li>Перезапустите Xbox через трей.</li>
+          <li>Если не помогло — перезагрузите ПК.</li>
+          <li>Отключите антивирус и брандмауэр.</li>
+        </ol>
+      </details>
+
+      <details data-keywords="xbox live войти">
+        <summary>Не удаётся войти в Xbox Live</summary>
+        <p>Проверьте Microsoft Answers: <a target="_blank" href="https://answers.microsoft.com/ru-ru/windows/forum/all/не/bdec7704-5c05-47db-8b6b-a19aa9f2ee97">открыть ссылку</a>.</p>
+      </details>
+
+      <details data-keywords="ой похоже войдите здесь свой аккаунт">
+        <summary>Ошибка «Ой! Похоже…»</summary>
+        <p>Нажмите «Войдите здесь» и входите в <b>ваш личный аккаунт</b>, а не в выданный аккаунт Store.</p>
+        <img class="error-img" src="oops-error.webp" alt="Ошибка Ой Похоже">
+      </details>
+    </div>
+  </section>
+
+  <section id="review" class="panel review-panel">
+    <div>
+      <span class="kicker">Спасибо</span>
+      <h2>Если всё получилось — оставьте отзыв</h2>
+      <p>Это очень помогает продавцу. Нажмите кнопку ниже, чтобы открыть профиль FunPay.</p>
+    </div>
+    <a class="btn primary" href="https://funpay.com/users/5941304/" target="_blank" rel="noopener">Открыть FunPay</a>
+  </section>
+</main>
+
+<a class="float-help" href="#errors">⚡ Ошибка?</a>
+<div id="toast">Скопировано</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

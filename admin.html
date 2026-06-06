@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Админка</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app-bg"></div>
+<main class="admin-wrap">
+  <section class="panel admin-panel">
+    <span class="kicker">Private</span>
+    <h1>Админка</h1>
+    <p>Тут можно менять данные, количество отзывов и онлайн-статус на сайте.</p>
+
+    <div id="loginArea">
+      <label>Пароль админки</label>
+      <input id="adminPass" type="password" placeholder="Введите пароль">
+      <button class="wide" id="loginBtn">Войти</button>
+    </div>
+
+    <div id="form" class="hidden">
+      <label>Почта</label>
+      <input id="newEmail" placeholder="Новая почта">
+
+      <label>Пароль аккаунта</label>
+      <input id="newPassword" placeholder="Новый пароль">
+
+      <label>Дата обновления</label>
+      <input id="newUpdated" placeholder="Например: 08/02/26">
+
+      <label>Ссылка на видео</label>
+      <input id="newVideo" placeholder="YouTube ссылка">
+
+      <label>Количество отзывов</label>
+      <input id="newReviews" placeholder="Например: 489">
+
+      <label>Статус</label>
+      <select id="newOnline">
+        <option value="онлайн">онлайн</option>
+        <option value="оффлайн">оффлайн</option>
+      </select>
+
+      <button class="wide" id="saveBtn">Сохранить изменения</button>
+      <p id="saveStatus" class="admin-status"></p>
+    </div>
+
+    <a class="btn primary small" href="index.html">Назад на сайт</a>
+  </section>
+</main>
+<div id="toast">Сохранено</div>
+<script type="module" src="admin.js"></script>
+</body>
+</html>
